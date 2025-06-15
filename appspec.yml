@@ -1,12 +1,10 @@
 version: 0.0
-os: linux
-files:
-  - source: /
-    destination: /var/www/html/
-hooks:
-  BeforeInstall:
-    - location: beforeInstall.sh
-      timeout: 100
-  ApplicationStart:
-    - location: applicationStart.sh
-      timeout: 100
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: <TASK_DEFINITION>
+        LoadBalancerInfo:
+          ContainerName: "my-app-container"
+          ContainerPort: 8080
+        PlatformVersion: "LATEST"
