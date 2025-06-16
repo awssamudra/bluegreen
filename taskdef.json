@@ -2,14 +2,14 @@
   "family": "my-app-task",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
-  "cpu": "512",
-  "memory": "1024",
-  "executionRoleArn": "arn:aws:iam::866739441508:role/ecs-task-role-blue",
-  "taskRoleArn": "arn:aws:iam::866739441508:role/ecs-task-role-blue",
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::866739441508:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::866739441508:role/ecsTaskRole",
   "containerDefinitions": [
     {
       "name": "my-app-container",
-      "image": "866739441508.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest",
+      "image": "<IMAGE1_URI>",
       "portMappings": [
         {
           "containerPort": 8080,
@@ -20,7 +20,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/my-app-task",
+          "awslogs-group": "/ecs/my-app",
           "awslogs-region": "ap-south-1",
           "awslogs-stream-prefix": "ecs"
         }
