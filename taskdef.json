@@ -9,7 +9,7 @@
   "containerDefinitions": [
     {
       "name": "my-app-container",
-      "image": "<IMAGE1_URI>",
+      "image": "866739441508.dkr.ecr.us-east-1.amazonaws.com/my-app:latest",
       "portMappings": [
         {
           "containerPort": 8080,
